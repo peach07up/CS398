@@ -1,0 +1,99 @@
+$date
+	Tue Feb  5 15:59:17 2013
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module steering_test $end
+$var wire 1 ! left $end
+$var wire 1 " right $end
+$var wire 1 # walk $end
+$var reg 5 $ sensors [4:0] $end
+$scope module steer $end
+$var wire 1 % l1 $end
+$var wire 1 & l2 $end
+$var wire 1 ! left $end
+$var wire 1 ' na10 $end
+$var wire 1 ( o01 $end
+$var wire 1 " right $end
+$var wire 1 ) s01 $end
+$var wire 5 * sensors [4:0] $end
+$var wire 1 + w1 $end
+$var wire 1 , w2 $end
+$var wire 1 # walk $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+0,
+0+
+b0 *
+0)
+0(
+1'
+0&
+1%
+b0 $
+1#
+0"
+0!
+$end
+#20
+b10000 $
+b10000 *
+#30
+0%
+1&
+b11000 $
+b11000 *
+#40
+1!
+b11100 $
+b11100 *
+#50
+0#
+1,
+1+
+1(
+b11110 $
+b11110 *
+#60
+0'
+1)
+b11111 $
+b11111 *
+#70
+1"
+0!
+1'
+0&
+0)
+b1110 $
+b1110 *
+#80
+0"
+1!
+1&
+1#
+0,
+0+
+0(
+b1100 $
+b1100 *
+#90
+0"
+1!
+1%
+0&
+b100 $
+b100 *
+#100
+1+
+1(
+b10110 $
+b10110 *
+#110

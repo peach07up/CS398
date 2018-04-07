@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/svn/sp13-cs398/!svn/ver/2610/mei16/Lab5
+END
+arith_machine.v
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/sp13-cs398/!svn/ver/2929/mei16/Lab5/arith_machine.v
+END
+rom.v
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/sp13-cs398/!svn/ver/2610/mei16/Lab5/rom.v
+END
+test_alu.s
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/sp13-cs398/!svn/ver/2610/mei16/Lab5/test_alu.s
+END
+memory.text.dat
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/sp13-cs398/!svn/ver/2610/mei16/Lab5/memory.text.dat
+END
+mux_lib.v
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/sp13-cs398/!svn/ver/2610/mei16/Lab5/mux_lib.v
+END
+arith_machine_tb.v
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/sp13-cs398/!svn/ver/2929/mei16/Lab5/arith_machine_tb.v
+END
+mips_defines.v
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/sp13-cs398/!svn/ver/2610/mei16/Lab5/mips_defines.v
+END
+alu32.v
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/sp13-cs398/!svn/ver/2610/mei16/Lab5/alu32.v
+END
+rf.v
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/sp13-cs398/!svn/ver/2610/mei16/Lab5/rf.v
+END
+partners.txt
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/sp13-cs398/!svn/ver/2610/mei16/Lab5/partners.txt
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/sp13-cs398/!svn/ver/2610/mei16/Lab5/Makefile
+END

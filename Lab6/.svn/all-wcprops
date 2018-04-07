@@ -1,0 +1,95 @@
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/svn/sp13-cs398/!svn/ver/3076/mei16/Lab6
+END
+full_machine_tb.v
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/sp13-cs398/!svn/ver/3354/mei16/Lab6/full_machine_tb.v
+END
+lwbr2.text.dat
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/sp13-cs398/!svn/ver/3354/mei16/Lab6/lwbr2.text.dat
+END
+all.data.dat
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/sp13-cs398/!svn/ver/3076/mei16/Lab6/all.data.dat
+END
+lwbr2.s
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/sp13-cs398/!svn/ver/3354/mei16/Lab6/lwbr2.s
+END
+full_machine.v
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/sp13-cs398/!svn/ver/3354/mei16/Lab6/full_machine.v
+END
+alu32.v
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/sp13-cs398/!svn/ver/3076/mei16/Lab6/alu32.v
+END
+rom.v
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/sp13-cs398/!svn/ver/3076/mei16/Lab6/rom.v
+END
+all.text.dat
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/sp13-cs398/!svn/ver/3354/mei16/Lab6/all.text.dat
+END
+mux_lib.v
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/sp13-cs398/!svn/ver/3076/mei16/Lab6/mux_lib.v
+END
+lwbr2.data.dat
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/sp13-cs398/!svn/ver/3076/mei16/Lab6/lwbr2.data.dat
+END
+mips_defines.v
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/sp13-cs398/!svn/ver/3076/mei16/Lab6/mips_defines.v
+END
+all.s
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/sp13-cs398/!svn/ver/3354/mei16/Lab6/all.s
+END
+rf.v
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/sp13-cs398/!svn/ver/3076/mei16/Lab6/rf.v
+END
+partners.txt
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/sp13-cs398/!svn/ver/3422/mei16/Lab6/partners.txt
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/sp13-cs398/!svn/ver/3076/mei16/Lab6/Makefile
+END

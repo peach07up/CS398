@@ -1,0 +1,139 @@
+$date
+	Sun Feb 17 16:07:21 2013
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module testThis $end
+$var wire 3 ! alu [2:0] $end
+$var wire 1 " except $end
+$var wire 1 # itype $end
+$var wire 1 $ wr_en $end
+$var reg 6 % funct [5:0] $end
+$var reg 6 & opcode [5:0] $end
+$scope module m0 $end
+$var wire 1 ' add $end
+$var wire 1 ( addi $end
+$var wire 3 ) alu_op [2:0] $end
+$var wire 1 * andd $end
+$var wire 1 + andi $end
+$var wire 1 " except $end
+$var wire 6 , funct [5:0] $end
+$var wire 1 # itype $end
+$var wire 1 - norr $end
+$var wire 6 . opcode [5:0] $end
+$var wire 1 / ori $end
+$var wire 1 0 orr $end
+$var wire 1 1 sub $end
+$var wire 1 $ writeenable $end
+$var wire 1 2 xori $end
+$var wire 1 3 xorr $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+03
+02
+01
+00
+0/
+b0 .
+0-
+b0 ,
+0+
+0*
+b110 )
+0(
+0'
+b0 &
+b0 %
+1$
+0#
+1"
+b110 !
+$end
+#1
+0"
+b10 !
+b10 )
+b100000 %
+b100000 ,
+1'
+#2
+b11 !
+b11 )
+b100010 %
+b100010 ,
+0'
+11
+#3
+b100 !
+b100 )
+b100100 %
+b100100 ,
+01
+1*
+#4
+b101 !
+b101 )
+b100101 %
+b100101 ,
+0*
+10
+#5
+b111 !
+b111 )
+b100110 %
+b100110 ,
+00
+13
+#6
+0"
+b110 !
+b110 )
+b100111 %
+b100111 ,
+1-
+03
+#7
+1#
+b10 !
+b10 )
+b1000 &
+b1000 .
+1(
+b0 %
+b0 ,
+0-
+#8
+b100 !
+b100 )
+b1100 &
+b1100 .
+0(
+1+
+#9
+b101 !
+b101 )
+b1101 &
+b1101 .
+0+
+1/
+#10
+b111 !
+b111 )
+b1110 &
+b1110 .
+0/
+12
+#11
+b11 !
+b11 )
+b100000 %
+b100000 ,
+1'
+#12

@@ -1,0 +1,33 @@
+module testThis;
+	reg A = 0;
+	always #1 A = !A;
+	reg B = 0;
+ 	always #2 B = !B;
+ 	reg Cin = 0;
+ 	always #4 Cin = !Cin;
+   
+	reg [2:0] control = 0;
+
+	initial begin
+		$dumpfile("alu1.vcd");
+		$dumpvars(0, testThis);
+
+		# 8 control = 1;
+		# 8 control = 2;
+		# 8 control = 3;
+		# 8 control = 4;
+		# 8 control = 5;
+		# 8 control = 6;
+		# 8 control = 7;
+		# 8 $finish;
+	end
+
+	wire out, co;
+	alu1 a1(out, co,  A, B, Cin, control);
+
+	initial begin
+		$display("A B Cin c[2] c[1] c[0] ");
+		$monitor("%d %d %d %d %d %d %d %d(at time %t)", A, B, Cin, control[2], control[1], control[0], out, co, $time);
+	end
+
+endmodule

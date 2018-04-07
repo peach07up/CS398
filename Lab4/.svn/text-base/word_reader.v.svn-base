@@ -1,0 +1,70 @@
+// dffe: D-type flip-flop with enable
+//
+// q      (output) - Current value of flip flop
+// d      (input)  - Next value of flip flop
+// clk    (input)  - Clock (positive edge-sensitive)
+// enable (input)  - Load new value? (yes = 1, no = 0)
+// reset  (input)  - Asynchronous reset   (reset =  1)
+//
+module dffe(q, d, clk, enable, reset);
+   output q;
+   reg    q;
+   input  d;
+   input  clk, enable, reset;
+
+   always@(reset)
+     if (reset == 1'b1)
+       q <= 0;
+
+   always@(posedge clk)
+     if ((reset == 1'b0) && (enable == 1'b1))
+       q <= d;
+endmodule // dffe
+
+
+module word_reader(I, L, U, V, bits, clk, reset);
+   output 	I, L, U, V;
+   input [1:0] 	bits;
+   input 	reset, clk;
+   wire     sNull, sNull_next;
+   wire		[3:0]c;
+   wire		O, I0, I1, I2, G;
+   wire		condO, condI0, condI1, condI2, condI, condL, condU, condG, Ii, Ll, Uu, en;
+   assign en = 1'b1;
+   
+   dffe fsNull(sNull, sNull_next, clk, 1'b1, 1'b0);
+   assign sNull_next = reset;
+   assign condO = (bits==0);
+   dffe o(O, condO, clk, en, reset);
+   assign condI0 = O & (bits==3);
+   dffe i0(I0, condI0, clk, en, reset);//I0 state.
+   assign condI1 = I0 & (bits==1);
+   dffe i1(I1, condI1, clk, en, reset);//I1 state.
+   assign condI2 = I1 & (bits==3);
+   dffe i2(I2, condI2, clk, en, reset);//I2 state.
+   assign condI = I0 & (bits==0);
+   assign I = condI;
+   dffe i(Ii, condI, clk, en, reset);//I state.
+   assign condL = I1 & (bits==0);
+   assign L = condL;
+   dffe l(Ll, condL, clk, en, reset);//L state.
+   assign condU = I2 & (bits==0);
+   assign U = condU;
+   dffe u(Uu, condU, clk, en, reset);//U state.
+
+   
+   //Extra Credit: V states.
+   wire		V0, V1, V2, V;
+   wire		condV0, condV1, condV2, condV, Vv;
+   assign condV0 = O & (bits==2);
+   dffe v0(V0, condV0, clk, en, reset);//V0 state.
+   assign condV1 = V0 & (bits==1);
+   dffe v1(V1, condV1, clk, en, reset);//V1 state.
+   assign condV2 = V1 & (bits==2);
+   dffe v2(V2, condV2, clk, en, reset);//V2 state.
+   assign condV = V2 & (bits==0);
+   assign V = condV;
+   dffe v(Vv, condV, clk, en, reset);  //V state 
+   assign condG = ~(condO|condI1|condI2|condI|condL|condU|condV0|condV1|condV2|condV);
+   dffe g(G, condG, clk, en, reset);//Garbage state.
+endmodule // word_reader

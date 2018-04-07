@@ -1,0 +1,143 @@
+#! /usr/bin/vvp
+:ivl_version "0.9.5 " "(v0_9_5)";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_0x11ec420 .scope module, "steering_test" "steering_test" 2 1;
+ .timescale 0 0;
+v0x1216d10_0 .net "left", 0 0, L_0x1218970; 1 drivers
+v0x1216d90_0 .net "right", 0 0, L_0x12191d0; 1 drivers
+v0x1216e10_0 .var "sensors", 4 0;
+v0x1216e90_0 .net "walk", 0 0, L_0x1217410; 1 drivers
+S_0x11eb790 .scope module, "steer" "steering" 2 36, 3 1, S_0x11ec420;
+ .timescale 0 0;
+L_0x1215810 .functor AND 1, L_0x1217000, L_0x12170f0, C4<1>, C4<1>;
+L_0x12171e0 .functor AND 1, L_0x1217290, L_0x1215810, C4<1>, C4<1>;
+L_0x1217410 .functor NOT 1, L_0x12171e0, C4<0>, C4<0>, C4<0>;
+L_0x12174c0 .functor AND 1, L_0x1217520, L_0x1217610, C4<1>, C4<1>;
+L_0x1217700 .functor NOT 1, L_0x12174c0, C4<0>, C4<0>, C4<0>;
+L_0x12177b0 .functor OR 1, L_0x1217810, L_0x1217940, C4<0>, C4<0>;
+L_0x1217380 .functor NOT 1, L_0x12177b0, C4<0>, C4<0>, C4<0>;
+L_0x1217c80 .functor NOT 1, L_0x1217b90, C4<0>, C4<0>, C4<0>;
+L_0x1217d80 .functor AND 1, L_0x1217380, L_0x1217c80, C4<1>, C4<1>;
+L_0x1217f20 .functor AND 1, L_0x1217700, L_0x1217e80, C4<1>, C4<1>;
+L_0x1218080 .functor OR 1, L_0x1217d80, L_0x1217f20, C4<0>, C4<0>;
+L_0x1218230 .functor NOT 1, L_0x1218130, C4<0>, C4<0>, C4<0>;
+L_0x1218020 .functor AND 1, L_0x1218080, L_0x1218230, C4<1>, C4<1>;
+L_0x12181d0 .functor OR 1, L_0x12184e0, L_0x1218580, C4<0>, C4<0>;
+L_0x12187c0 .functor NOT 1, L_0x12181d0, C4<0>, C4<0>, C4<0>;
+L_0x1218870 .functor OR 1, L_0x12183d0, L_0x12187c0, C4<0>, C4<0>;
+L_0x1218a00 .functor AND 1, L_0x1218330, L_0x1218870, C4<1>, C4<1>;
+L_0x1217a30 .functor OR 1, L_0x1218020, L_0x1218a00, C4<0>, C4<0>;
+L_0x1218970 .functor AND 1, L_0x1218b00, L_0x1217a30, C4<1>, C4<1>;
+L_0x1219070 .functor OR 1, L_0x1218020, L_0x1218a00, C4<0>, C4<0>;
+L_0x1218db0 .functor NOT 1, L_0x1219070, C4<0>, C4<0>, C4<0>;
+L_0x12191d0 .functor AND 1, L_0x1218f40, L_0x1218db0, C4<1>, C4<1>;
+v0x11eae90_0 .net *"_s1", 0 0, L_0x1217000; 1 drivers
+v0x12151f0_0 .net *"_s13", 0 0, L_0x1217810; 1 drivers
+v0x1215290_0 .net *"_s15", 0 0, L_0x1217940; 1 drivers
+v0x1215330_0 .net *"_s16", 0 0, L_0x1217380; 1 drivers
+v0x12153e0_0 .net *"_s19", 0 0, L_0x1217b90; 1 drivers
+v0x1215480_0 .net *"_s20", 0 0, L_0x1217c80; 1 drivers
+v0x1215560_0 .net *"_s22", 0 0, L_0x1217d80; 1 drivers
+v0x1215600_0 .net *"_s25", 0 0, L_0x1217e80; 1 drivers
+v0x12156f0_0 .net *"_s26", 0 0, L_0x1217f20; 1 drivers
+v0x1215790_0 .net *"_s28", 0 0, L_0x1218080; 1 drivers
+v0x1215890_0 .net *"_s3", 0 0, L_0x12170f0; 1 drivers
+v0x1215930_0 .net *"_s31", 0 0, L_0x1218130; 1 drivers
+v0x1215a40_0 .net *"_s32", 0 0, L_0x1218230; 1 drivers
+v0x1215ae0_0 .net *"_s37", 0 0, L_0x1218330; 1 drivers
+v0x1215c00_0 .net *"_s39", 0 0, L_0x12183d0; 1 drivers
+v0x1215ca0_0 .net *"_s41", 0 0, L_0x12184e0; 1 drivers
+v0x1215b60_0 .net *"_s43", 0 0, L_0x1218580; 1 drivers
+v0x1215df0_0 .net *"_s44", 0 0, L_0x12181d0; 1 drivers
+v0x1215f10_0 .net *"_s46", 0 0, L_0x12187c0; 1 drivers
+v0x1215f90_0 .net *"_s48", 0 0, L_0x1218870; 1 drivers
+v0x1215e70_0 .net *"_s5", 0 0, L_0x1217290; 1 drivers
+v0x12160c0_0 .net *"_s53", 0 0, L_0x1218b00; 1 drivers
+v0x1216010_0 .net *"_s54", 0 0, L_0x1217a30; 1 drivers
+v0x1216200_0 .net *"_s59", 0 0, L_0x1218f40; 1 drivers
+v0x1216160_0 .net *"_s60", 0 0, L_0x1219070; 1 drivers
+v0x1216350_0 .net *"_s62", 0 0, L_0x1218db0; 1 drivers
+v0x12162a0_0 .net *"_s7", 0 0, L_0x1217520; 1 drivers
+v0x12164b0_0 .net *"_s9", 0 0, L_0x1217610; 1 drivers
+v0x12163f0_0 .net "l1", 0 0, L_0x1218020; 1 drivers
+v0x1216620_0 .net "l2", 0 0, L_0x1218a00; 1 drivers
+v0x1216530_0 .alias "left", 0 0, v0x1216d10_0;
+v0x12167a0_0 .net "na10", 0 0, L_0x1217700; 1 drivers
+v0x12166a0_0 .net "o01", 0 0, L_0x12177b0; 1 drivers
+v0x1216930_0 .alias "right", 0 0, v0x1216d90_0;
+v0x1216820_0 .net "s01", 0 0, L_0x12174c0; 1 drivers
+v0x1216ad0_0 .net "sensors", 4 0, v0x1216e10_0; 1 drivers
+v0x12169b0_0 .net "w1", 0 0, L_0x1215810; 1 drivers
+v0x1216a50_0 .net "w2", 0 0, L_0x12171e0; 1 drivers
+v0x1216c90_0 .alias "walk", 0 0, v0x1216e90_0;
+L_0x1217000 .part v0x1216e10_0, 1, 1;
+L_0x12170f0 .part v0x1216e10_0, 2, 1;
+L_0x1217290 .part v0x1216e10_0, 3, 1;
+L_0x1217520 .part v0x1216e10_0, 0, 1;
+L_0x1217610 .part v0x1216e10_0, 1, 1;
+L_0x1217810 .part v0x1216e10_0, 0, 1;
+L_0x1217940 .part v0x1216e10_0, 1, 1;
+L_0x1217b90 .part v0x1216e10_0, 4, 1;
+L_0x1217e80 .part v0x1216e10_0, 4, 1;
+L_0x1218130 .part v0x1216e10_0, 3, 1;
+L_0x1218330 .part v0x1216e10_0, 3, 1;
+L_0x12183d0 .part v0x1216e10_0, 4, 1;
+L_0x12184e0 .part v0x1216e10_0, 4, 1;
+L_0x1218580 .part v0x1216e10_0, 1, 1;
+L_0x1218b00 .part v0x1216e10_0, 2, 1;
+L_0x1218f40 .part v0x1216e10_0, 2, 1;
+    .scope S_0x11ec420;
+T_0 ;
+    %set/v v0x1216e10_0, 0, 5;
+    %end;
+    .thread T_0;
+    .scope S_0x11ec420;
+T_1 ;
+    %vpi_call 2 6 "$dumpfile", "steering.vcd";
+    %vpi_call 2 7 "$dumpvars", 1'sb0, S_0x11ec420;
+    %delay 10, 0;
+    %set/v v0x1216e10_0, 0, 5;
+    %delay 10, 0;
+    %movi 8, 16, 5;
+    %set/v v0x1216e10_0, 8, 5;
+    %delay 10, 0;
+    %movi 8, 24, 5;
+    %set/v v0x1216e10_0, 8, 5;
+    %delay 10, 0;
+    %movi 8, 28, 5;
+    %set/v v0x1216e10_0, 8, 5;
+    %delay 10, 0;
+    %movi 8, 30, 5;
+    %set/v v0x1216e10_0, 8, 5;
+    %delay 10, 0;
+    %set/v v0x1216e10_0, 1, 5;
+    %delay 10, 0;
+    %movi 8, 14, 5;
+    %set/v v0x1216e10_0, 8, 5;
+    %delay 10, 0;
+    %movi 8, 12, 5;
+    %set/v v0x1216e10_0, 8, 5;
+    %delay 10, 0;
+    %movi 8, 4, 5;
+    %set/v v0x1216e10_0, 8, 5;
+    %delay 10, 0;
+    %movi 8, 22, 5;
+    %set/v v0x1216e10_0, 8, 5;
+    %delay 10, 0;
+    %vpi_call 2 32 "$finish";
+    %end;
+    .thread T_1;
+    .scope S_0x11ec420;
+T_2 ;
+    %vpi_call 2 39 "$monitor", "At time %t, sensors = %b left = %d right = %x walk = %x", $time, v0x1216e10_0, v0x1216d10_0, v0x1216d90_0, v0x1216e90_0;
+    %end;
+    .thread T_2;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "steering_tb.v";
+    "steering.v";

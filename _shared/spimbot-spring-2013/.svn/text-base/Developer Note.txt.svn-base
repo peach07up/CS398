@@ -1,0 +1,3 @@
+In this version of spimBOT (sp13), we modified robot.h and robot.c a lot.
+Since we also modified QtSpim its self to support more functions, please use this version of QtSpim for future development of spimBOT (fa13).
+In other words, reuse all the files except robot.h, robot.c and scenario files.

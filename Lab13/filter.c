@@ -1,0 +1,70 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<time.h>
+#include "filter.h"
+int stride = 8;
+
+void filter_fusion(pixel_t **image1, pixel_t **image2)
+{
+	for (int i = 1; i < SIZE-1; i++){
+		image2[i]->x = image1[i-1]->x + image1[i+1]->x;
+		image2[i]->y = image1[i-1]->y + image1[i+1]->y;
+		image2[i]->z = image1[i-1]->z + image1[i+1]->z;
+		if(i < SIZE-4){
+			image2[i+2]->r = image1[i]->r + image1[i+4]->r;
+			image2[i+2]->g = image1[i]->g + image1[i+4]->g;
+			image2[i+2]->b = image1[i]->b + image1[i+4]->b;
+		}
+		if(i< SIZE-5){
+			image2[i]->x = image2[i]->x + image2[i+5]->x;
+			image2[i]->y = image2[i]->y + image2[i+5]->y;
+			image2[i]->z = image2[i]->z + image2[i+5]->z;
+		}
+	}
+}
+
+void filter_prefetch(pixel_t **image1, pixel_t **image2)
+{
+		for (int i = 1 ; i < SIZE-1 ; i++) {
+			__builtin_prefetch(image1[i+stride], 0, 2);
+			__builtin_prefetch(image2[i+stride], 0, 1);
+			filter1(image1, image2, i);
+		}
+	
+		for (int i = 2 ; i < SIZE-2 ; i ++) {
+			__builtin_prefetch(image1[i+stride], 0, 2);
+			__builtin_prefetch(image2[i+stride], 0, 1);
+			filter2(image1, image2, i);
+		}	
+		
+		for (int i = 1 ; i < SIZE-5 ; i ++) {
+			__builtin_prefetch(image1[i+stride], 0, 2);
+			__builtin_prefetch(image2[i+stride], 0, 1);
+			filter3(image2,i);
+		}
+		
+}
+
+
+void filter_all(pixel_t **image1, pixel_t **image2)
+{
+	for (int i = 1; i < SIZE-1; i++){
+		__builtin_prefetch(image1[i+stride], 0, 2);
+		__builtin_prefetch(image2[i+stride], 0, 1);
+		
+		image2[i]->x = image1[i-1]->x + image1[i+1]->x;
+		image2[i]->y = image1[i-1]->y + image1[i+1]->y;
+		image2[i]->z = image1[i-1]->z + image1[i+1]->z;
+		if(i < SIZE-4){
+			image2[i+2]->r = image1[i]->r + image1[i+4]->r;
+			image2[i+2]->g = image1[i]->g + image1[i+4]->g;
+			image2[i+2]->b = image1[i]->b + image1[i+4]->b;
+		}
+		if(i< SIZE-5){
+			image2[i]->x = image2[i]->x + image2[i+5]->x;
+			image2[i]->y = image2[i]->y + image2[i+5]->y;
+			image2[i]->z = image2[i]->z + image2[i+5]->z;
+		}
+	}
+		
+}

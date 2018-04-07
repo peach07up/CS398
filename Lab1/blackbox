@@ -1,0 +1,100 @@
+#! /usr/bin/vvp
+:ivl_version "0.9.6 " "(v0_9_6)";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_0xefe0b0 .scope module, "bbtest" "bbtest" 2 1;
+ .timescale 0 0;
+v0xf13960_0 .var "o", 0 0;
+v0xf139e0_0 .var "r", 0 0;
+v0xf13a60_0 .var "u", 0 0;
+v0xf13b10_0 .net "x", 0 0, L_0xf131e0; 1 drivers
+S_0xefe1a0 .scope module, "bb1" "blackbox" 2 20, 3 1, S_0xefe0b0;
+ .timescale 0 0;
+L_0xf131e0 .functor OR 1, L_0xf13c20, L_0xf13ee0, C4<0>, C4<0>;
+L_0xf13c20 .functor AND 1, L_0xf14640, L_0xf13d00, C4<1>, C4<1>;
+L_0xf13d00 .functor OR 1, L_0xf13de0, L_0xf14500, C4<0>, C4<0>;
+L_0xf13de0 .functor NOT 1, L_0xf14500, C4<0>, C4<0>, C4<0>;
+L_0xf13ee0 .functor AND 1, L_0xf14090, L_0xf13f90, C4<1>, C4<1>;
+L_0xf13f90 .functor NOT 1, L_0xf14090, C4<0>, C4<0>, C4<0>;
+L_0xf14090 .functor AND 1, v0xf13a60_0, L_0xf14140, C4<1>, C4<1>;
+L_0xf14140 .functor OR 1, L_0xf14240, L_0xf14340, C4<0>, C4<0>;
+L_0xf14240 .functor NOT 1, v0xf139e0_0, C4<0>, C4<0>, C4<0>;
+L_0xf14340 .functor AND 1, L_0xf14450, v0xf139e0_0, C4<1>, C4<1>;
+L_0xf14450 .functor NOT 1, v0xf13960_0, C4<0>, C4<0>, C4<0>;
+L_0xf14500 .functor OR 1, v0xf13a60_0, L_0xf143f0, v0xf13960_0, C4<0>;
+L_0xf143f0 .functor NOT 1, v0xf139e0_0, C4<0>, C4<0>, C4<0>;
+L_0xf14640 .functor AND 1, v0xf139e0_0, L_0xf14720, C4<1>, C4<1>;
+L_0xf14720 .functor OR 1, L_0xf14860, v0xf13960_0, C4<0>, C4<0>;
+L_0xf14860 .functor NOT 1, v0xf13a60_0, C4<0>, C4<0>, C4<0>;
+v0xeec080_0 .net "o", 0 0, v0xf13960_0; 1 drivers
+v0xf12bc0_0 .net "r", 0 0, v0xf139e0_0; 1 drivers
+v0xf12c60_0 .net "u", 0 0, v0xf13a60_0; 1 drivers
+v0xf12d00_0 .net "w11", 0 0, L_0xf14500; 1 drivers
+v0xf12db0_0 .net "w13", 0 0, L_0xf13f90; 1 drivers
+v0xf12e50_0 .net "w18", 0 0, L_0xf13ee0; 1 drivers
+v0xf12f30_0 .net "w20", 0 0, L_0xf14140; 1 drivers
+v0xf12fd0_0 .net "w26", 0 0, L_0xf13c20; 1 drivers
+v0xf130c0_0 .net "w33", 0 0, L_0xf13de0; 1 drivers
+v0xf13160_0 .net "w39", 0 0, L_0xf14720; 1 drivers
+v0xf13260_0 .net "w54", 0 0, L_0xf14860; 1 drivers
+v0xf13300_0 .net "w56", 0 0, L_0xf14450; 1 drivers
+v0xf13410_0 .net "w67", 0 0, L_0xf13d00; 1 drivers
+v0xf134b0_0 .net "w81", 0 0, L_0xf14090; 1 drivers
+v0xf135d0_0 .net "w84", 0 0, L_0xf14340; 1 drivers
+v0xf13670_0 .net "w91", 0 0, L_0xf14240; 1 drivers
+v0xf13530_0 .net "w95", 0 0, L_0xf14640; 1 drivers
+v0xf137c0_0 .net "w98", 0 0, L_0xf143f0; 1 drivers
+v0xf138e0_0 .alias "x", 0 0, v0xf13b10_0;
+    .scope S_0xefe0b0;
+T_0 ;
+    %set/v v0xf13a60_0, 0, 1;
+    %end;
+    .thread T_0;
+    .scope S_0xefe0b0;
+T_1 ;
+    %set/v v0xf13960_0, 0, 1;
+    %end;
+    .thread T_1;
+    .scope S_0xefe0b0;
+T_2 ;
+    %set/v v0xf139e0_0, 0, 1;
+    %end;
+    .thread T_2;
+    .scope S_0xefe0b0;
+T_3 ;
+    %vpi_call 2 6 "$dumpfile", "sc2.vcd";
+    %vpi_call 2 7 "$dumpvars", 1'sb0, S_0xefe0b0;
+    %delay 10, 0;
+    %set/v v0xf139e0_0, 1, 1;
+    %delay 10, 0;
+    %set/v v0xf13960_0, 1, 1;
+    %set/v v0xf139e0_0, 0, 1;
+    %delay 10, 0;
+    %set/v v0xf139e0_0, 1, 1;
+    %delay 10, 0;
+    %set/v v0xf13a60_0, 1, 1;
+    %set/v v0xf13960_0, 0, 1;
+    %set/v v0xf139e0_0, 0, 1;
+    %delay 10, 0;
+    %set/v v0xf139e0_0, 1, 1;
+    %delay 10, 0;
+    %set/v v0xf13960_0, 1, 1;
+    %set/v v0xf139e0_0, 0, 1;
+    %delay 10, 0;
+    %set/v v0xf139e0_0, 1, 1;
+    %vpi_call 2 16 "$finish";
+    %end;
+    .thread T_3;
+    .scope S_0xefe0b0;
+T_4 ;
+    %vpi_call 2 23 "$monitor", "At time %t, u = %d o = %d, r = %d, x = %d", $time, v0xf13a60_0, v0xf13960_0, v0xf139e0_0, v0xf13b10_0;
+    %end;
+    .thread T_4;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "blackbox_tb.v";
+    "blackbox.v";

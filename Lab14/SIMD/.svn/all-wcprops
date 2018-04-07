@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/sp13-cs398/!svn/ver/7620/mei16/Lab14/SIMD
+END
+mv-mult.c
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/sp13-cs398/!svn/ver/7756/mei16/Lab14/SIMD/mv-mult.c
+END
+mv-mult-main.c
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/sp13-cs398/!svn/ver/7620/mei16/Lab14/SIMD/mv-mult-main.c
+END
+mv-mult.h
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/sp13-cs398/!svn/ver/7620/mei16/Lab14/SIMD/mv-mult.h
+END
+mandelbrot.c
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/sp13-cs398/!svn/ver/7756/mei16/Lab14/SIMD/mandelbrot.c
+END
+mandelbrot-main.c
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/sp13-cs398/!svn/ver/7620/mei16/Lab14/SIMD/mandelbrot-main.c
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/sp13-cs398/!svn/ver/7620/mei16/Lab14/SIMD/Makefile
+END
+mandelbrot.h
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/sp13-cs398/!svn/ver/7620/mei16/Lab14/SIMD/mandelbrot.h
+END

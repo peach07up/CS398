@@ -1,0 +1,12 @@
+// Don't put any code but your countOnes function in this file
+
+// Your countOnes function should contain no loops or conditional statements
+
+unsigned int 
+countOnes(unsigned int input) {
+	input = ((input & 0xAA)>>1) + (input & 0x55);
+	input = ((input & 0xCC)>>2) + (input & 0x33);
+	input = ((input & 0xF0)>>4) + (input & 0x0F);
+	return input; /* works for input = 0 or input = 1  :) */
+}
+

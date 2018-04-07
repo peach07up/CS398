@@ -1,0 +1,325 @@
+$date
+	Tue Feb  5 16:05:01 2013
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module word_reader_test $end
+$var wire 1 ! I $end
+$var wire 1 " L $end
+$var wire 1 # U $end
+$var wire 1 $ V $end
+$var reg 2 % bits [1:0] $end
+$var reg 1 & clk $end
+$var reg 1 ' reset $end
+$scope module wr $end
+$var wire 1 ( G $end
+$var wire 1 ! I $end
+$var wire 1 ) I0 $end
+$var wire 1 * I1 $end
+$var wire 1 + I2 $end
+$var wire 1 , Ii $end
+$var wire 1 " L $end
+$var wire 1 - Ll $end
+$var wire 1 . O $end
+$var wire 1 # U $end
+$var wire 1 / Uu $end
+$var wire 1 $ V $end
+$var wire 1 0 V0 $end
+$var wire 1 1 V1 $end
+$var wire 1 2 V2 $end
+$var wire 1 3 Vv $end
+$var wire 2 4 bits [1:0] $end
+$var wire 1 5 clk $end
+$var wire 1 6 condG $end
+$var wire 1 7 condI $end
+$var wire 1 8 condI0 $end
+$var wire 1 9 condI1 $end
+$var wire 1 : condI2 $end
+$var wire 1 ; condL $end
+$var wire 1 < condO $end
+$var wire 1 = condU $end
+$var wire 1 > condV $end
+$var wire 1 ? condV0 $end
+$var wire 1 @ condV1 $end
+$var wire 1 A condV2 $end
+$var wire 1 B en $end
+$var wire 1 C reset $end
+$var wire 1 D sNull $end
+$var wire 1 E sNull_next $end
+$scope module fsNull $end
+$var wire 1 5 clk $end
+$var wire 1 E d $end
+$var wire 1 F enable $end
+$var wire 1 G reset $end
+$var reg 1 H q $end
+$upscope $end
+$scope module o $end
+$var wire 1 5 clk $end
+$var wire 1 < d $end
+$var wire 1 B enable $end
+$var wire 1 C reset $end
+$var reg 1 I q $end
+$upscope $end
+$scope module i0 $end
+$var wire 1 5 clk $end
+$var wire 1 8 d $end
+$var wire 1 B enable $end
+$var wire 1 C reset $end
+$var reg 1 J q $end
+$upscope $end
+$scope module i1 $end
+$var wire 1 5 clk $end
+$var wire 1 9 d $end
+$var wire 1 B enable $end
+$var wire 1 C reset $end
+$var reg 1 K q $end
+$upscope $end
+$scope module i2 $end
+$var wire 1 5 clk $end
+$var wire 1 : d $end
+$var wire 1 B enable $end
+$var wire 1 C reset $end
+$var reg 1 L q $end
+$upscope $end
+$scope module i $end
+$var wire 1 5 clk $end
+$var wire 1 7 d $end
+$var wire 1 B enable $end
+$var wire 1 C reset $end
+$var reg 1 M q $end
+$upscope $end
+$scope module l $end
+$var wire 1 5 clk $end
+$var wire 1 ; d $end
+$var wire 1 B enable $end
+$var wire 1 C reset $end
+$var reg 1 N q $end
+$upscope $end
+$scope module u $end
+$var wire 1 5 clk $end
+$var wire 1 = d $end
+$var wire 1 B enable $end
+$var wire 1 C reset $end
+$var reg 1 O q $end
+$upscope $end
+$scope module v0 $end
+$var wire 1 5 clk $end
+$var wire 1 ? d $end
+$var wire 1 B enable $end
+$var wire 1 C reset $end
+$var reg 1 P q $end
+$upscope $end
+$scope module v1 $end
+$var wire 1 5 clk $end
+$var wire 1 @ d $end
+$var wire 1 B enable $end
+$var wire 1 C reset $end
+$var reg 1 Q q $end
+$upscope $end
+$scope module v2 $end
+$var wire 1 5 clk $end
+$var wire 1 A d $end
+$var wire 1 B enable $end
+$var wire 1 C reset $end
+$var reg 1 R q $end
+$upscope $end
+$scope module v $end
+$var wire 1 5 clk $end
+$var wire 1 > d $end
+$var wire 1 B enable $end
+$var wire 1 C reset $end
+$var reg 1 S q $end
+$upscope $end
+$scope module g $end
+$var wire 1 5 clk $end
+$var wire 1 6 d $end
+$var wire 1 B enable $end
+$var wire 1 C reset $end
+$var reg 1 T q $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+0T
+0S
+0R
+0Q
+0P
+0O
+0N
+0M
+0L
+0K
+0J
+0I
+xH
+0G
+1F
+1E
+xD
+1C
+1B
+0A
+0@
+0?
+0>
+0=
+1<
+0;
+0:
+09
+08
+07
+06
+05
+b0 4
+03
+02
+01
+00
+0/
+0.
+0-
+0,
+0+
+0*
+0)
+0(
+1'
+0&
+b0 %
+0$
+0#
+0"
+0!
+$end
+#5
+1H
+1D
+1&
+15
+#10
+0&
+05
+#12
+0'
+0E
+0C
+#15
+1I
+1.
+0H
+0D
+1&
+15
+#20
+0&
+05
+#25
+1&
+15
+#30
+0&
+05
+#32
+16
+18
+b11 %
+b11 4
+0<
+#35
+08
+1T
+1(
+1J
+1)
+0I
+0.
+1&
+15
+#40
+0&
+05
+#42
+06
+19
+b1 %
+b1 4
+#45
+16
+09
+0J
+0)
+1K
+1*
+0T
+0(
+1&
+15
+#50
+0&
+05
+#52
+06
+1:
+b11 %
+b11 4
+#55
+16
+0:
+1L
+1+
+0K
+0*
+1&
+15
+#60
+0&
+05
+#62
+06
+1#
+1=
+b0 %
+b0 4
+1<
+#65
+0#
+0=
+1I
+1.
+0L
+0+
+1O
+1/
+1&
+15
+#70
+0&
+05
+#72
+1?
+b10 %
+b10 4
+0<
+#75
+16
+0?
+1P
+10
+0O
+0/
+0I
+0.
+1&
+15
+#80
+0&
+05
+#82

@@ -1,0 +1,25 @@
+module bbtest;
+
+	reg u=0, o=0, r=0;
+	
+	initial begin		
+		$dumpfile("sc2.vcd");
+		$dumpvars(0, bbtest);
+		
+		#10	r=1;			//001
+		#10 o=1; r=0;		//010
+		#10 r=1;			//011
+		#10 u=1; o=0; r=0;//100
+		#10 r=1;			//101
+		#10 o=1; r=0;		//110
+		#10 r=1;			//111
+		$finish;
+	end
+	
+	wire x;
+	blackbox bb1(x, u, o, r);
+	
+	initial
+		$monitor("At time %t, u = %d o = %d, r = %d, x = %d", $time, u, o, r, x);
+			
+endmodule // test

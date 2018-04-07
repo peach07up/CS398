@@ -1,0 +1,57 @@
+#include <stdlib.h>
+#include <stdio.h>
+#include <time.h>
+
+#define NITERS 32768
+
+
+int compare(const void* elem1, const void* elem2)
+{
+	int a1 = *((int*)elem1);
+    int a2 = *((int*)elem2);
+    if (a1 > a2) return  1;
+    if (a1 < a2) return -1;
+    return 0;
+	
+}
+
+int main()
+{
+    // Generate data
+	
+    int data[NITERS];
+	int i,j;
+	clock_t start, end;
+	
+	srand(20561);
+
+    for (i = 0; i < NITERS; i++) {
+        data[i] = rand() % 256;
+	}
+
+
+    // !!! With this, the next loop runs faster
+	qsort (data, NITERS, sizeof(*data), compare);
+	
+
+    // Test
+	start = clock();
+    unsigned long long sum = 0;
+
+    for (i = 0; i < 10000; ++i)
+    {
+        // Primary loop
+        for (j = 0; j < NITERS; ++j)
+        {
+            if (data[j] >= 128)
+                sum += data[j];
+        }
+    }
+
+	end = clock();
+    double elapsedTime = (double) (end - start) / CLOCKS_PER_SEC;
+
+    printf(" ElapsedTime %f \n", elapsedTime);
+	printf(" Sum %llu \n", sum);
+	
+}

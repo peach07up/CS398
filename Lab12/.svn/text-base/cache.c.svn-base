@@ -1,0 +1,141 @@
+#include <assert.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include "cache.h"
+
+// take the log base 2 of a number       
+int 
+log2(int num) {   	  
+  assert((num & (num - 1)) == 0);   // "num" must be a power of 2 !!
+  int ret = 0;
+  
+  // count the number of 1s in "<num> - 1"
+  for (int shifter = num - 1; shifter > 0; shifter >>= 1) {
+    ret++;
+  }
+  
+  return ret;
+}
+
+// initialize the cache by allocating space for all of the cache
+// blocks and initializing them to be invalid and with 0 last access
+// times.
+void
+init_cache(cache_t *cache, unsigned size, 
+			  unsigned block_size, unsigned nways) {
+  
+   int num_blocks = size/block_size;
+  // this call will assert if any of the parameters are not powers of 2
+  //assert((block_size&(block_size-1))==0);
+  //assert((size&(size-1))==0);
+  //assert((nways&(nways-1))==0);
+  log2(block_size);
+  log2(num_blocks/nways);
+  
+  // Important params.
+  cache->index_bits = log2(num_blocks)-log2(nways);
+  cache->boff_bits = log2(block_size);
+  cache->tag_bits = 32 - cache->index_bits - cache->boff_bits;
+
+  // copy over parameters cache-size, cache->num_blocks, cache->nways, cache->block_size
+  cache->size = size;
+  cache->num_blocks = num_blocks;
+  cache->nways = nways;
+  cache->block_size = block_size;
+  
+  // initialize counters and statistics
+  cache->LRU_counter = 1;  // for LRU
+	
+  // setup bitmak masks for tag and index 
+  cache->index_mask = (1<<cache->index_bits)-1;
+	cache->tag_mask = (1<<cache->tag_bits)-1;
+	
+  // dynamically allocate space for cache blocks (this is C's new)
+  cache->blocks = (cache_block_t *) malloc(num_blocks * sizeof(cache_block_t));
+  
+  // initialize each cache block to be invalid 
+  for (int i = 0 ; i < num_blocks ; ++ i) {
+    cache->blocks[i].valid = false;
+    cache->blocks[i].last_access_time = 0;
+  }
+}
+
+void init_stats(stats_t *stats){
+	stats->accesses=0;
+	stats->hits=0;
+}
+
+// This function returns the cache block which is the "way"th 
+// entry in the "index"th set.
+cache_block_t *
+get_block(cache_t *cache, unsigned index, unsigned way) {
+  assert (way < cache->nways);
+  unsigned num_sets = cache->num_blocks / cache->nways;
+  assert (index < num_sets);
+  unsigned i = (index * cache->nways) + way;
+  return &cache->blocks[i];
+}
+
+// given an address, extract the tag field for cache "cache"
+unsigned 
+extract_tag(cache_t *cache, unsigned address) {
+  return (address>>(cache->index_bits+cache->boff_bits))&(cache->tag_mask);
+}
+
+// given an address, extract the index field for cache "cache"
+unsigned 
+extract_index(cache_t *cache, unsigned address) {
+  return (address>>(cache->boff_bits))&(cache->index_mask);
+}
+
+// given an address, look up in cache "cache" to see if that 
+// address hits.  If it does update the last access time
+bool
+find_block_and_update_lru(cache_t *cache, unsigned address, stats_t *stats) {
+  unsigned tag = extract_tag(cache, address);
+  unsigned index = extract_index(cache, address);
+
+  // fixme: this function needs to be updated.
+  
+  cache->LRU_counter++;
+  stats->accesses++;
+  for (unsigned way = 0 ; way < cache->nways ; ++ way) {
+    cache_block_t *block = get_block(cache, index, way);
+    if ((block->tag == tag) && block->valid) {//A Hit!
+    	block->last_access_time = cache->LRU_counter;
+    	stats->hits++;
+      return true;
+    }
+    //A Miss!
+    //block->last_access_time = cache->LRU_counter;
+  }
+
+  return false;
+}
+
+// This function should find the LRU block and replace it 
+// with one that contains "address"
+void
+fill_cache_with_block(cache_t *cache, unsigned address) {
+	
+	unsigned tag = extract_tag(cache, address);
+  unsigned index = extract_index(cache, address);
+
+  // fixme: this function needs to be updated.
+  unsigned minima = cache->LRU_counter;
+  cache_block_t *LRU = NULL;
+  for (unsigned way = 0 ; way < cache->nways ; ++ way) {
+  	cache_block_t *block = get_block(cache, index, way);
+  	if((block->last_access_time)<minima){
+  		LRU = block;
+  		minima = block->last_access_time;
+  	}
+  }
+  LRU->tag = tag;
+  LRU->valid = true;
+  cache->LRU_counter++;
+  LRU->last_access_time = cache->LRU_counter;  // We technically don't need to check the validity of the blocks we
+  // look at, because all invalid blocks will have a last_access_time
+  // of 0, but I've added code to do the check, just for completeness
+  
+}

@@ -1,0 +1,19 @@
+CC = gcc
+CPPFLAGS = -Wall -g -O0 -msse2 -mfpmath=sse
+CFLAGS = -std=c99
+
+.PHONY: all clean
+
+all: mandelbrot-image
+
+mandelbrot-image: mandelbrot-image.o bmp.o
+	$(CC) $(CPPFLAGS) $(CFLAGS) -o mandelbrot-image mandelbrot-image.o bmp.o
+
+mandelbrot-image.o: mandelbrot-image.h mandelbrot-image.c mandelbrot.c
+	$(CC) $(CPPFLAGS) $(CFLAGS) -c mandelbrot-image.c
+
+bmp.o: bmp.h bmp.c
+	$(CC) $(CPPFLAGS) $(CFLAGS) -c bmp.c
+
+clean:
+	rm -f mandelbrot-image mandelbrot-image.o bmp.o

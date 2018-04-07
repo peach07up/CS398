@@ -1,0 +1,203 @@
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/sp13-cs398/!svn/ver/6490/_shared/spimbot-spring-2013/QtSpim
+END
+spimview.ui
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/sp13-cs398/!svn/ver/6490/_shared/spimbot-spring-2013/QtSpim/spimview.ui
+END
+qtspim.rc
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/sp13-cs398/!svn/ver/6490/_shared/spimbot-spring-2013/QtSpim/qtspim.rc
+END
+scanner_lex.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/sp13-cs398/!svn/ver/6490/_shared/spimbot-spring-2013/QtSpim/scanner_lex.cpp
+END
+exception.qrc
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/sp13-cs398/!svn/ver/6490/_shared/spimbot-spring-2013/QtSpim/exception.qrc
+END
+textwin.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/sp13-cs398/!svn/ver/6490/_shared/spimbot-spring-2013/QtSpim/textwin.cpp
+END
+printwindows.ui
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/sp13-cs398/!svn/ver/6490/_shared/spimbot-spring-2013/QtSpim/printwindows.ui
+END
+spimview.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/sp13-cs398/!svn/ver/6490/_shared/spimbot-spring-2013/QtSpim/spimview.cpp
+END
+texttextedit.h
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/sp13-cs398/!svn/ver/6490/_shared/spimbot-spring-2013/QtSpim/texttextedit.h
+END
+spim_support.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/sp13-cs398/!svn/ver/6490/_shared/spimbot-spring-2013/QtSpim/spim_support.c
+END
+menu.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/sp13-cs398/!svn/ver/6490/_shared/spimbot-spring-2013/QtSpim/menu.cpp
+END
+ui_spimview.h
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/sp13-cs398/!svn/ver/6490/_shared/spimbot-spring-2013/QtSpim/ui_spimview.h
+END
+console.h
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/sp13-cs398/!svn/ver/6490/_shared/spimbot-spring-2013/QtSpim/console.h
+END
+QtSpim.pro.user
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/sp13-cs398/!svn/ver/6490/_shared/spimbot-spring-2013/QtSpim/QtSpim.pro.user
+END
+state.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/sp13-cs398/!svn/ver/6490/_shared/spimbot-spring-2013/QtSpim/state.cpp
+END
+windows_images.qrc
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/sp13-cs398/!svn/ver/6490/_shared/spimbot-spring-2013/QtSpim/windows_images.qrc
+END
+main.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/sp13-cs398/!svn/ver/6490/_shared/spimbot-spring-2013/QtSpim/main.cpp
+END
+breakpoint.ui
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/sp13-cs398/!svn/ver/6490/_shared/spimbot-spring-2013/QtSpim/breakpoint.ui
+END
+datatextedit.h
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/sp13-cs398/!svn/ver/6490/_shared/spimbot-spring-2013/QtSpim/datatextedit.h
+END
+settings.ui
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/sp13-cs398/!svn/ver/6490/_shared/spimbot-spring-2013/QtSpim/settings.ui
+END
+spim_settings.h
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/sp13-cs398/!svn/ver/6490/_shared/spimbot-spring-2013/QtSpim/spim_settings.h
+END
+regtextedit.h
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/sp13-cs398/!svn/ver/6490/_shared/spimbot-spring-2013/QtSpim/regtextedit.h
+END
+parser_yacc.h
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/sp13-cs398/!svn/ver/6490/_shared/spimbot-spring-2013/QtSpim/parser_yacc.h
+END
+console.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/sp13-cs398/!svn/ver/6490/_shared/spimbot-spring-2013/QtSpim/console.cpp
+END
+runparams.ui
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/sp13-cs398/!svn/ver/6490/_shared/spimbot-spring-2013/QtSpim/runparams.ui
+END
+spimview.h
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/sp13-cs398/!svn/ver/6490/_shared/spimbot-spring-2013/QtSpim/spimview.h
+END
+README
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/sp13-cs398/!svn/ver/6490/_shared/spimbot-spring-2013/QtSpim/README
+END
+changevalue.ui
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/sp13-cs398/!svn/ver/6490/_shared/spimbot-spring-2013/QtSpim/changevalue.ui
+END
+settablecheckbox.h
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/sp13-cs398/!svn/ver/6490/_shared/spimbot-spring-2013/QtSpim/settablecheckbox.h
+END
+datawin.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/sp13-cs398/!svn/ver/6490/_shared/spimbot-spring-2013/QtSpim/datawin.cpp
+END
+QtSpim.pro
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/sp13-cs398/!svn/ver/6490/_shared/spimbot-spring-2013/QtSpim/QtSpim.pro
+END
+regwin.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/sp13-cs398/!svn/ver/6490/_shared/spimbot-spring-2013/QtSpim/regwin.cpp
+END
+savelogfile.ui
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/sp13-cs398/!svn/ver/6490/_shared/spimbot-spring-2013/QtSpim/savelogfile.ui
+END
+parser_yacc.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/sp13-cs398/!svn/ver/6490/_shared/spimbot-spring-2013/QtSpim/parser_yacc.cpp
+END

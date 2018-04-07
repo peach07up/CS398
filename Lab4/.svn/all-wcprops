@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/svn/sp13-cs398/!svn/ver/1862/mei16/Lab4
+END
+rf_tb.v
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/sp13-cs398/!svn/ver/1960/mei16/Lab4/rf_tb.v
+END
+word_reader.v
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/sp13-cs398/!svn/ver/1960/mei16/Lab4/word_reader.v
+END
+mux_lib.v
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/sp13-cs398/!svn/ver/1862/mei16/Lab4/mux_lib.v
+END
+steering.v
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/sp13-cs398/!svn/ver/1960/mei16/Lab4/steering.v
+END
+word_reader_tb.v
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/sp13-cs398/!svn/ver/1960/mei16/Lab4/word_reader_tb.v
+END
+steering_tb.v
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/sp13-cs398/!svn/ver/1960/mei16/Lab4/steering_tb.v
+END
+rf.v
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/sp13-cs398/!svn/ver/1975/mei16/Lab4/rf.v
+END
+partners.txt
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/sp13-cs398/!svn/ver/1862/mei16/Lab4/partners.txt
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/sp13-cs398/!svn/ver/1862/mei16/Lab4/Makefile
+END

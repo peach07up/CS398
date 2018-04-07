@@ -1,0 +1,32 @@
+// currently the extractMessage function manipulates pixels values so
+// that it swaps the blue and red tinting of pixels.  Obviously this
+// has nothing to do with the assignment; but it shows you how to read
+// pixel values.  Re-write it as the assignment specifies.
+
+#include "bmp.h"
+
+void 
+extractMessage(BMPfile bmpfile, char* msg) {
+  	unsigned char temp;
+  	int width = getWidth(bmpfile);
+  	int height = getHeight(bmpfile);
+  	int count = 0;
+  	int tag = 0;
+  	printf("The image has %d x %d pixels\n", width, height);
+  	for (int y = 0 ; y < height ; y++) {
+	 	for (int x = 0 ; x < width ; x++) {
+			pixel p = getPixel(bmpfile, x, y);	/* read pixel */
+			if(count == 8) {
+				msg[tag] = temp;
+				printf("!");
+				count = 0;
+				tag++;
+				if(temp==0x00) break;
+			}
+			temp = (temp<<1)|(p.green& 0x01); 
+			count++;
+	 	}
+	 	if(temp==0x00) break;
+  	}
+}
+

@@ -1,0 +1,11 @@
+cachesim gcc-trace 65536 2 64 
+Reached end of file
+hits: 465703, accesses: 468722, hit rate: 99.36
+
+cachesim gcc-trace 1024 2 64 
+Reached end of file
+hits: 437692, accesses: 468722, hit rate: 93.38
+
+cachesim gcc-trace 1024 1 64 
+Reached end of file
+hits: 420077, accesses: 468722, hit rate: 89.62

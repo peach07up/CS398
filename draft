@@ -1,0 +1,44 @@
+				lw		$t2, 0xffff0020($0)				#current X
+				lw		$t3, 0xffff0024($0)				#current Y
+				beq		$t2, 0, bwlr
+				beq		$t2, 300, bwlr
+				beq		$t3, 0, bwud
+				beq		$t3, 300, bwud
+				li		$t4, 0
+				beq		$t0, 180, lr
+				beq		$t0, 0, lr
+				la		$t1, pivot_x
+				sw		$t1, 0xffff00c0($0)				#get pivot_x since we are travelling vertically
+		bloopx:	lw		$t4, 0($t1)
+				beq		$t4, $t2, out_blx				#Compare the x-coords, get the segment
+				add		$t1, $t1, 4						
+				j		bloopx
+		out_blx:lw		$t5, 4($t1)						# $t5=endpoint
+				#beq		$t5, -1, tailx
+				sub 	$t4, $t3, $t4
+				blt		$t4, 0,	set180
+		set0:	li		$t4, 0
+				j		fill
+		set180:	li		$t4, 180
+				j		fill
+		lr:		la		$t1, pivot_y
+				sw		$t1, 0xffff00c4($0)				#get pivot_y
+		bloopy:	lw		$t4, 0($t1)
+				beq		$t4, $t3, out_bly
+				add		$t1, $t1, 4
+				j		bloopy
+		out_bly:lw		$t5, 4($t1)
+				sub		$t4, $t2, $t4
+				blt		$t4, 0, set270
+		set90:	li		$t4, 90
+				j		fill
+		set270:	li		$t4, 270
+		fill:	sw		$t4, 0xffff0014($0)
+				li		$t4, 1
+				sw		$t4, 0xffff0018($0)
+				j		finish
+		bwlr:	lw		$t1, 0xffff0074($0)			#apple_y
+				bgt		$t1, $t3, set90
+				j		set270
+		bwud:	lw		$t1, 0xffff0070($0)			#apple_x
+				bgt		$t1, $t2, set0

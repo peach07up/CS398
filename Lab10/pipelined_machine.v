@@ -1,0 +1,69 @@
+module pipelined_machine(clk, reset);
+   input        clk, reset;
+
+   wire [31:0] 	PC;
+   wire [31:2]  next_PC, PC_plus4, PC_target, n_PC;
+   wire [31:0] 	inst;
+   
+   wire [31:0] 	imm = {{ 16{inst[15]} }, inst[15:0] };  // sign-extended immediate
+   wire [4:0] 	rs = inst[25:21];
+   wire [4:0] 	rt = inst[20:16];
+   wire [4:0] 	rd = inst[15:11];
+   wire [5:0] 	opcode = inst[31:26];
+   wire [5:0] 	funct = inst[5:0];
+   wire [4:0] 	wr_regnum, n_regnum;
+   wire [2:0] 	ALUOp;
+   wire [5:0]	n_opcode, n_funct;
+   wire [4:0]	n_rs, n_rt, n_rd;
+
+   wire 	RegWrite, BEQ, ALUSrc, MemRead, MemWrite, MemToReg, RegDst;
+   wire         PCSrc, zero, flush, ForwardA, ForwardB, wr_en;
+   wire [31:0] 	rd1_data, rd2_data, B_data, alu_out_data, load_data, wr_data;
+   wire [31:0]	n_rd1_data, n_rd2_data, n_imm, n_wr_data, f_rd1_data, f_rd2_data;
+
+   assign flush = PCSrc|reset;
+   register #(30, 30'h100000) PC_reg(PC[31:2], next_PC[31:2], clk, /* enable */1'b1, reset);
+   assign PC[1:0] = 2'b0;  // bottom bits hard coded to 00
+   adder30 next_PC_adder(PC_plus4, PC[31:2], 30'h1);//increment by 4-PC
+   adder30 target_PC_adder(PC_target, n_PC, n_imm[29:0]);
+   mux2v #(30) branch_mux(next_PC, PC_plus4, PC_target, PCSrc);
+   
+   assign PCSrc = BEQ & zero;
+      
+   instruction_memory imem (PC[31:2], inst);
+
+   mips_decode decode(ALUOp, RegWrite, BEQ, ALUSrc, MemRead, MemWrite, MemToReg, RegDst, 
+		      n_opcode, n_funct);
+   
+   regfile rf (rs, rt, wr_regnum, 
+               rd1_data, rd2_data, wr_data, 
+               RegWrite, clk, reset);
+
+   mux2v #(32) imm_mux(B_data, f_rd2_data, n_imm, ALUSrc);
+   alu32 alu(alu_out_data, zero, ALUOp, f_rd1_data, B_data);
+   
+   data_mem data_memory(load_data, alu_out_data, f_rd2_data, MemRead, MemWrite, clk, reset);
+   
+   mux2v #(32) wb_mux(wr_data, alu_out_data, load_data, MemToReg);
+   mux2v #(5) rd_mux(wr_regnum, n_rt, n_rd, RegDst);
+   
+   //Pipelines
+   register #(30,0) Pipeline_PC_Reg(n_PC, PC_plus4, clk, 1'b1, flush);
+   register #(6, `OP_OTHER0) Pipeline_opcode(n_opcode, opcode, clk, 1'b1, flush);
+   register #(6, `OP0_ADD) Pipeline_funct(n_funct, funct, clk, 1'b1, flush);
+   register #(32,32'h90) Pipeline_rd1(n_rd1_data, rd1_data, clk, 1'b1, flush);
+   register #(32,0) Pipeline_rd2(n_rd2_data, rd2_data, clk, 1'b1, flush);
+   register #(32,0) Pipeline_imm(n_imm, imm, clk, 1'b1, flush);
+   register #(5, 0) Pipeline_rt(n_rt, rt, clk, 1'b1, flush);
+   register #(5, 0) Pipeline_rd(n_rd, rd, clk, 1'b1, flush);
+   register #(5, 0) Pipeline_rs(n_rs, rs, clk, 1'b1, flush);
+   
+   //Forwarding
+   register #(32, 0) Pipeline_Forwarding(n_wr_data, wr_data, clk, 1'b1, flush);
+   register #(5, 0) Pipeline_Forwarding_regnum(n_regnum, wr_regnum, clk, 1'b1, flush);
+   //register #(1, 0) Pipeline_Forwarding_wr_en(wr_en, RegWrite, clk, 1'b1, flush);
+   assign ForwardA = (n_rs==n_regnum)&RegWrite&(n_rs!=0);
+   assign ForwardB = (n_rt==n_regnum)&RegWrite&(n_rt!=0);
+   mux2v #(32) rd1(f_rd1_data, n_rd1_data, n_wr_data, ForwardA);
+   mux2v #(32) rd2(f_rd2_data, n_rd2_data, n_wr_data, ForwardB);
+endmodule // pipelined_machine

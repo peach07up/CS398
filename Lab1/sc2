@@ -1,0 +1,108 @@
+#! /usr/bin/vvp
+:ivl_version "0.9.6 " "(v0_9_6)";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_0x14ed250 .scope module, "test" "test" 2 1;
+ .timescale 0 0;
+v0x1502f10_0 .var "a", 0 0;
+v0x1502fe0_0 .var "b", 0 0;
+v0x15030b0_0 .var "cin", 0 0;
+v0x1503180_0 .net "cout", 0 0, L_0x1503bb0; 1 drivers
+v0x1503200_0 .net "s", 0 0, L_0x1503a70; 1 drivers
+S_0x14ed340 .scope module, "sc1" "sc2_block" 2 20, 3 4, S_0x14ed250;
+ .timescale 0 0;
+L_0x1503bb0 .functor OR 1, L_0x15032d0, L_0x1503720, C4<0>, C4<0>;
+v0x1502930_0 .net "a", 0 0, v0x1502f10_0; 1 drivers
+v0x1502a00_0 .net "b", 0 0, v0x1502fe0_0; 1 drivers
+v0x1502ab0_0 .net "c1", 0 0, L_0x15032d0; 1 drivers
+v0x1502b60_0 .net "c2", 0 0, L_0x1503720; 1 drivers
+v0x1502c40_0 .net "cin", 0 0, v0x15030b0_0; 1 drivers
+v0x1502cf0_0 .alias "cout", 0 0, v0x1503180_0;
+v0x1502d70_0 .alias "s", 0 0, v0x1503200_0;
+v0x1502df0_0 .net "s1", 0 0, L_0x1503620; 1 drivers
+S_0x1502330 .scope module, "sc1" "sc_block" 3 8, 4 1, S_0x14ed340;
+ .timescale 0 0;
+L_0x15032d0 .functor AND 1, v0x1502f10_0, v0x1502fe0_0, C4<1>, C4<1>;
+L_0x1503380 .functor NOT 1, v0x1502f10_0, C4<0>, C4<0>, C4<0>;
+L_0x1503470 .functor NOT 1, v0x1502fe0_0, C4<0>, C4<0>, C4<0>;
+L_0x1503560 .functor AND 1, v0x1502f10_0, L_0x1503470, C4<1>, C4<1>;
+L_0x15035c0 .functor AND 1, v0x1502fe0_0, L_0x1503380, C4<1>, C4<1>;
+L_0x1503620 .functor OR 1, L_0x1503560, L_0x15035c0, C4<0>, C4<0>;
+v0x1502420_0 .alias "a", 0 0, v0x1502930_0;
+v0x15024e0_0 .alias "b", 0 0, v0x1502a00_0;
+v0x1502580_0 .alias "c", 0 0, v0x1502ab0_0;
+v0x1502620_0 .net "not_a", 0 0, L_0x1503380; 1 drivers
+v0x15026a0_0 .net "not_b", 0 0, L_0x1503470; 1 drivers
+v0x1502740_0 .alias "s", 0 0, v0x1502df0_0;
+v0x15027c0_0 .net "w1", 0 0, L_0x1503560; 1 drivers
+v0x1502840_0 .net "w2", 0 0, L_0x15035c0; 1 drivers
+S_0x14ee890 .scope module, "sc2" "sc_block" 3 9, 4 1, S_0x14ed340;
+ .timescale 0 0;
+L_0x1503720 .functor AND 1, L_0x1503620, v0x15030b0_0, C4<1>, C4<1>;
+L_0x1503860 .functor NOT 1, L_0x1503620, C4<0>, C4<0>, C4<0>;
+L_0x15038c0 .functor NOT 1, v0x15030b0_0, C4<0>, C4<0>, C4<0>;
+L_0x15039b0 .functor AND 1, L_0x1503620, L_0x15038c0, C4<1>, C4<1>;
+L_0x1503a10 .functor AND 1, v0x15030b0_0, L_0x1503860, C4<1>, C4<1>;
+L_0x1503a70 .functor OR 1, L_0x15039b0, L_0x1503a10, C4<0>, C4<0>;
+v0x14ee980_0 .alias "a", 0 0, v0x1502df0_0;
+v0x1501e30_0 .alias "b", 0 0, v0x1502c40_0;
+v0x1501ed0_0 .alias "c", 0 0, v0x1502b60_0;
+v0x1501f70_0 .net "not_a", 0 0, L_0x1503860; 1 drivers
+v0x1502020_0 .net "not_b", 0 0, L_0x15038c0; 1 drivers
+v0x15020c0_0 .alias "s", 0 0, v0x1503200_0;
+v0x15021a0_0 .net "w1", 0 0, L_0x15039b0; 1 drivers
+v0x1502240_0 .net "w2", 0 0, L_0x1503a10; 1 drivers
+    .scope S_0x14ed250;
+T_0 ;
+    %set/v v0x1502f10_0, 0, 1;
+    %end;
+    .thread T_0;
+    .scope S_0x14ed250;
+T_1 ;
+    %set/v v0x1502fe0_0, 0, 1;
+    %end;
+    .thread T_1;
+    .scope S_0x14ed250;
+T_2 ;
+    %set/v v0x15030b0_0, 0, 1;
+    %end;
+    .thread T_2;
+    .scope S_0x14ed250;
+T_3 ;
+    %vpi_call 2 6 "$dumpfile", "sc2.vcd";
+    %vpi_call 2 7 "$dumpvars", 1'sb0, S_0x14ed250;
+    %delay 10, 0;
+    %set/v v0x15030b0_0, 1, 1;
+    %delay 10, 0;
+    %set/v v0x1502fe0_0, 1, 1;
+    %set/v v0x15030b0_0, 0, 1;
+    %delay 10, 0;
+    %set/v v0x15030b0_0, 1, 1;
+    %delay 10, 0;
+    %set/v v0x1502f10_0, 1, 1;
+    %set/v v0x1502fe0_0, 0, 1;
+    %set/v v0x15030b0_0, 0, 1;
+    %delay 10, 0;
+    %set/v v0x15030b0_0, 1, 1;
+    %delay 10, 0;
+    %set/v v0x1502fe0_0, 1, 1;
+    %set/v v0x15030b0_0, 0, 1;
+    %delay 10, 0;
+    %set/v v0x15030b0_0, 1, 1;
+    %vpi_call 2 16 "$finish";
+    %end;
+    .thread T_3;
+    .scope S_0x14ed250;
+T_4 ;
+    %vpi_call 2 23 "$monitor", "At time %t, a = %d b = %d, cin = %d s = %d cout = %d", $time, v0x1502f10_0, v0x1502fe0_0, v0x15030b0_0, v0x1503200_0, v0x1503180_0;
+    %end;
+    .thread T_4;
+# The file index is used to find the file name in the following table.
+:file_names 5;
+    "N/A";
+    "<interactive>";
+    "sc2_block_tb.v";
+    "sc2_block.v";
+    "sc_block.v";

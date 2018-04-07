@@ -1,0 +1,80 @@
+## In this file, please implement the collision function as shown below.
+##
+## Do not include any testing code in this file (especially not any
+##  "main" labels).  Load both this file and p2_main.s into QtSpim for
+## testing
+
+#define MAX_LENGTH 256		<--- equivalent MIPS constant defined below
+
+## int
+## collision(int my_x, int my_y, int target_x, int target_y, int *snake_x, int *snake_y) {
+## 
+##   int i = 0;
+## 
+##   if (my_x == target_x) {              // going up or down
+## 	 if (snake_x[0] == snake_x[1]) {    // first segment is verticle
+## 		i ++;                            // skip first segment
+## 	 }
+## 	 for ( ; (i < MAX_LENGTH) && (snake_y[i] != -1) ; i += 2) {
+## 		int my_loc_above = (my_y < snake_y[i]);
+## 		int target_loc_above = (target_y < snake_y[i]);
+## 		int left = (my_x < snake_x[i]) && (my_x < snake_x[i+1]);
+## 		int right = (my_x > snake_x[i]) && (my_x > snake_x[i+1]);
+## 
+## 		int intersection = (my_loc_above ^ target_loc_above) && !left && !right;
+## 		if (intersection) {
+## 		  return i;
+## 		}
+## 	 }
+##   } 
+## 
+##   return -1;
+## }
+
+# this is how constants are declared in SPIM
+# the constant's name can be used like an immediate
+# see p1_spimbot.s for usage examples if you're not sure
+MAX_LENGTH = 256
+
+#my_x = $a0, my_y =  $a1
+#target_x = $a2, target_y = $a3
+#snake_x = $s0, snake_y = $s1
+.text
+.globl collision
+collision:
+			li		$v0, 0
+			beq		$a0, $a2, next
+	nolp:	li		$v0, -1
+			j		end
+	next:	add		$t2, $s0, $v0
+			lw		$t0, 0($t2)
+			lw		$t1, 4($t2)
+			bne		$t0, $t1, loop
+			add		$v0, $v0, 1
+	loop:	slt		$t0, $v0, MAX_LENGTH
+			beq		$t0, $0, nolp
+			mul		$t1, $v0, 4
+			add		$t2, $t1, $s1
+			add		$t1, $t1, $s0
+			lw		$t2, 0($t2)
+			li		$t0, -1
+			beq		$t2, $t0, nolp
+			slt		$t0, $a1, $t2
+			slt		$t3, $a3, $t2
+			xor		$t2, $t0, $t3
+			beq		$0, $t2, notint
+			lw		$t2, 4($t1)
+			lw		$t1, 0($t1)
+			slt		$t3, $a0, $t1
+			slt		$t4, $a0, $t2
+			and		$t3, $t3, $t4
+			bne		$t3, 0, notint 
+			slt		$t3, $t1, $a0
+			slt		$t4, $t2, $a0
+			and		$t3, $t3, $t4
+			bne		$t3, 0, notint
+			j		end
+	notint: add		$v0, $v0, 2
+	endlp:	j		loop
+	end:	jr 		$ra
+

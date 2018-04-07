@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 39
+/svn/sp13-cs398/!svn/ver/610/mei16/Lab1
+END
+sc_block.v
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/sp13-cs398/!svn/ver/610/mei16/Lab1/sc_block.v
+END
+sc2_block.v
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/sp13-cs398/!svn/ver/690/mei16/Lab1/sc2_block.v
+END
+sc_block_tb.v
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/sp13-cs398/!svn/ver/610/mei16/Lab1/sc_block_tb.v
+END
+blackbox.v
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/sp13-cs398/!svn/ver/610/mei16/Lab1/blackbox.v
+END
+sc2_block_tb.v
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/sp13-cs398/!svn/ver/690/mei16/Lab1/sc2_block_tb.v
+END
+blackbox.tt
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/sp13-cs398/!svn/ver/690/mei16/Lab1/blackbox.tt
+END
